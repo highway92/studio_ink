@@ -1,0 +1,80 @@
+extends layout/main 
+
+block content
+    div.price__title
+        span PRICE
+        span 스튜디오 잉크의 가격을 확인해보세요.
+    .price__contents 
+        .price__photo
+            img(src="http://localhost:3000/1.jpg")
+        .price__main
+            .price__text
+                .price__text__price 
+                    span 리터칭 셀프 컬러 / 흑백
+                    span 2.0
+                .price__text__sub 
+                    span 20min / 1인 기준 / 보정본 2장 출력 / 촬영사진 전체 제공
+            .price__text
+                .price__text__price 
+                    span 원본 셀프 컬러 / 흑백
+                    span 1.0
+                .price__text__sub 
+                    span 20min / 1인 기준 / 원본 2장 출력 / 촬영사진 전체 제공
+            .price__text
+                .price__text__price 
+                    span +1인 추가 (보정본 기준), 유아, 반려동물
+                    span 2.0
+            .price__text
+                .price__text__price 
+                    span +보정 1컷 추가 / 시간추가 (10min)
+                    span 1.0
+            .price__text
+                .price__text__price 
+                    span +인화 1장 추가
+                    span 0.5
+    section.question
+      .question_title 자주 묻는 질문
+      div
+        .question_box
+            .question_ex 예약확정 후 취소할 수 있나요?
+            .question_answer
+                i.fas.fa-circle
+                span 3일 전까지 예약변경은 가능합니다. 예약 취소시 예약금은 환불되지 않습니다.
+        .question_box
+            .question_ex 주차 가능한가요?
+            .question_answer
+                i.fas.fa-circle
+                span 주차는 지원하지 않습니다. 근처 민영주차장을 이용해주세요 😀
+        .question_box
+            .question_ex 사진 장 수 제한이 있나요?
+            .question_answer
+                i.fas.fa-circle
+                span 촬영 장수는 제한이 없습니다. 촬영시간 내에 자유롭게 촬영하시면 됩니다.
+        .question_box
+            .question_ex 늦는 경우 어떡하나요?
+            .question_answer
+                i.fas.fa-circle
+                span 촬영시간이 줄어듭니다. 예약 시간 10분전 도착 부탁드립니다.🙏 (20분이상 지연시 노쇼처리)
+    section.map
+        .map_title
+            span STUDIO_INK
+        .map-info
+          span
+            i.far.fa-map
+          span 오시는 길
+          span 부산 수영구 수영로 510번길7 2층 스튜디오 잉크
+        .map-info
+          span
+            i.fas.fa-phone
+          span 전화번호
+          span 010-2242-8784
+        .map-info
+          span
+            i.far.fa-clock
+          span 이용시간
+          span 오전 10:00 ~ 오후 20:00 (예약제 운영)
+        .map-info
+          span
+            i.fas.fa-info-circle
+          span 이용안내
+          span 무선 인터넷 / 화장실 / 주차지원X  

@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb://localhost:27017/studio", {
+dotenv.config();
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
 
 const db = mongoose.connection;
 
-const handleOpen = () => console.log("✅ Connected on DB");
-const handelError = (error) => console.log("❌ Error on DB");
-db.once("open", handleOpen);
-db.on("error", handelError);
+db.once("open", () => console.log("🐵 Connected on DB"));
+db.on("error", (error) => console.log(`🤬 Eroor Alert:${error}`));

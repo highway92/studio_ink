@@ -1,0 +1,13 @@
+extends layout/main 
+include partials/picture
+
+block content
+    .gallery__picture
+        .photo__title 
+            div GALLERY
+            div 스튜디오 잉크만의 특별한 사진을 감상해보세요.
+        .gallery__photos
+            each item in pictures 
+                +pictureBlock({
+                    imgfile:item.fileUrl
+                })

@@ -1,13 +1,17 @@
 import Picture from "./models/picture";
 import routes from "./routes";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const getHome = async (req, res) => {
-  const pictures = await Picture.find({});
+  const pictures = await Picture.find({}).sort({ _id: -1 });
   res.render("home", { pageTitle: "About us", pictures });
+  console.log(pictures);
 };
 
 export const getGallery = async (req, res) => {
-  const pictures = await Picture.find({});
+  const pictures = await Picture.find({}).sort({ _id: -1 });
   res.render("gallery", { pageTitle: "Gallery", pictures });
 };
 
@@ -29,6 +33,36 @@ export const postUpload = async (req, res) => {
     fileUrl: location,
     cb: CB,
   });
+
+  res.redirect(routes.home);
+};
+
+export const getlogin = (req, res) => {
+  res.render("login");
+};
+
+export const postlogin = (req, res) => {
+  const {
+    body: { email, password },
+  } = req;
+  const id = process.env.ADMIN_ID;
+  const pass = process.env.ADMIN_PASSWORD;
+  if (id == email && pass == password) {
+    master = true;
+    res.redirect(routes.home);
+  }
+};
+
+export const getlogout = (req, res) => {
+  master = false;
+  res.redirect(routes.home);
+};
+
+export const getdelete = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  await Picture.findOneAndRemove({ _id: id });
 
   res.redirect(routes.home);
 };

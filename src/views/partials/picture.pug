@@ -1,3 +1,9 @@
 mixin pictureBlock(picture = {})
     .pictureBlock 
         img.photo(src=picture.imgfile)
+
+mixin pictureadmin(picture = {})
+    .pictureBlock 
+        img.photo(src=picture.imgfile)
+        a(href=routes.delete(picture.id)) 
+            button delete 

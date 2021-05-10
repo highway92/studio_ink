@@ -7,7 +7,14 @@ block content
             div GALLERY
             div 스튜디오 잉크만의 특별한 사진을 감상해보세요.
         .gallery__photos
-            each item in pictures 
-                +pictureBlock({
-                    imgfile:item.fileUrl
-                })
+            if master === false
+                each item in pictures 
+                    +pictureBlock({
+                        imgfile:item.fileUrl
+                    })
+            if master === true 
+                each item in pictures 
+                    +pictureadmin({
+                        imgfile:item.fileUrl,
+                        id:item._id
+                    })

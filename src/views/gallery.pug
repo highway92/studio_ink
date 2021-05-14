@@ -6,15 +6,45 @@ block content
         .photo__title 
             div GALLERY
             div 스튜디오 잉크만의 특별한 사진을 감상해보세요.
-        .gallery__photos
-            if master === false
-                each item in pictures 
-                    +pictureBlock({
-                        imgfile:item.fileUrl
-                    })
-            if master === true 
-                each item in pictures 
-                    +pictureadmin({
-                        imgfile:item.fileUrl,
-                        id:item._id
-                    })
+        .photo__selection 
+            i(class="fas fa-sort-down")
+            span#all_photo All
+            span#color_photo Color 
+            span#black_photo Black
+        .gallery_main
+            .gallery__photos.all_photos
+                if master === false
+                    each item in pictures
+                        +pictureBlock({
+                            imgfile:item.fileUrl
+                            })
+                if master === true 
+                    each item in pictures 
+                        +pictureadmin({
+                            imgfile:item.fileUrl,
+                            id:item._id
+                        })
+            .gallery__photos.color_photos
+                if master === false
+                    each item in Cpictures
+                        +pictureBlock({
+                            imgfile:item.fileUrl
+                            })
+                if master === true 
+                    each item in Cpictures 
+                        +pictureadmin({
+                            imgfile:item.fileUrl,
+                            id:item._id
+                        })
+            .gallery__photos.black_photos
+                if master === false
+                    each item in Bpictures
+                        +pictureBlock({
+                            imgfile:item.fileUrl
+                            })
+                if master === true 
+                    each item in Bpictures 
+                        +pictureadmin({
+                            imgfile:item.fileUrl,
+                            id:item._id
+                        })

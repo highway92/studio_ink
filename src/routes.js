@@ -5,6 +5,7 @@ const UPLOAD = "/upload";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 const DELETE = "/:id/delete";
+const API = "/api";
 
 const routes = {
   home: HOME,
@@ -20,6 +21,7 @@ const routes = {
       return DELETE;
     }
   },
+  api: API,
 };
 
 export default routes;

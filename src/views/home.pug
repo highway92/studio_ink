@@ -25,15 +25,9 @@ block content
             div 스튜디오 잉크만의 특별한 사진을 감상해보세요.
         .photos 
             if master === false
-                each item in pictures 
+                each item in pictures
                     +pictureBlock({
                         imgfile:item.fileUrl
-                    })
-            if master === true 
-                each item in pictures 
-                    +pictureadmin({
-                        imgfile:item.fileUrl,
-                        id:item._id
                     })
         .button 
             a(href=routes.gallery)

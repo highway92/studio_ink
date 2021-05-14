@@ -7,12 +7,19 @@ dotenv.config();
 export const getHome = async (req, res) => {
   const pictures = await Picture.find({}).sort({ _id: -1 });
   res.render("home", { pageTitle: "About us", pictures });
-  console.log(pictures);
 };
 
 export const getGallery = async (req, res) => {
-  const pictures = await Picture.find({}).sort({ _id: -1 });
-  res.render("gallery", { pageTitle: "Gallery", pictures });
+  let pictures = await Picture.find({}).sort({ _id: -1 });
+  let Cpictures = await Picture.find({ cb: "color" }).sort({ _id: -1 });
+  let Bpictures = await Picture.find({ cb: "black" }).sort({ _id: -1 });
+
+  res.render("gallery", {
+    pageTitle: "Gallery",
+    pictures,
+    Cpictures,
+    Bpictures,
+  });
 };
 
 export const getNotice = (req, res) => {
@@ -28,7 +35,6 @@ export const postUpload = async (req, res) => {
     body: { CB },
     file: { location },
   } = req;
-  console.log(req.file);
   const newPicture = await Picture.create({
     fileUrl: location,
     cb: CB,
@@ -50,6 +56,8 @@ export const postlogin = (req, res) => {
   if (id == email && pass == password) {
     master = true;
     res.redirect(routes.home);
+  } else {
+    res.redirect(routes.login);
   }
 };
 

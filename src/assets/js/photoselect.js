@@ -22,6 +22,10 @@ function handleBlack() {
   color_pictures.classList.add("hide");
 }
 
-all_photo.addEventListener("click", handleAll);
-color.addEventListener("click", handleColor);
-black.addEventListener("click", handleBlack);
+function init() {
+  all_photo.addEventListener("click", handleAll);
+  color.addEventListener("click", handleColor);
+  black.addEventListener("click", handleBlack);
+}
+
+init();
